@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>0.17.0-SNAPSHOT</tycho.version>
+		<tycho-extras.version>0.17.0-SNAPSHOT</tycho-extras.version>
+		<tycho.repo.url>https://oss.sonatype.org/content/groups/public/</tycho.repo.url>
+	</properties>
+
+    <groupId>org.hibernate4.osgi</groupId>
+    <artifactId>org.hibernate4.osgi.parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+  	<modules>
+		<module>../org.hibernate4.lib.fragment</module>
+		<module>../org.hibernate4.osgi</module>
+  	</modules>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>org.eclipse.jdt.core</artifactId>
+							<version>3.8.1.v20120531-0637</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<source>${compileSource}</source>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<showWarnings>true</showWarnings>
+						<showDeprecation>true</showDeprecation>
+						<verbose>true</verbose>
+						<proc>none</proc>
+						<compilerArguments>
+							<inlineJSR />
+							<enableJavadoc />
+							<encoding>${project.build.sourceEncoding}</encoding>
+						</compilerArguments>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<resolver>p2</resolver>
+						<filters>
+							<!-- work around Equinox bug 348045 -->
+							<filter>
+								<type>p2-installable-unit</type>
+								<id>org.eclipse.equinox.servletbridge.extensionbundle</id>
+								<removeAll />
+							</filter>
+						</filters>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<extensions>true</extensions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<configuration>
+					<useJDK>BREE</useJDK>
+					<!-- TODO is this a bug ? should take level from manifest ... -->
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+			  <groupId>org.bsc.maven</groupId>
+			  <artifactId>maven-processor-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<target>
+						<artifact>
+						    <groupId>org.hibernate4.osgi</groupId>
+						    <artifactId>org.hibernate4.osgi.parent</artifactId>
+						    <version>0.0.1-SNAPSHOT</version>
+							<classifier>eclipse-3.8</classifier>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
