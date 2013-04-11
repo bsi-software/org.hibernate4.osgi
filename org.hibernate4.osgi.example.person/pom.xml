@@ -9,7 +9,7 @@
 		<relativePath>../org.hibernate4.osgi.parent</relativePath>
 	</parent>
 
-	<artifactId>org.hibernate4.osgi</artifactId>
+	<artifactId>org.hibernate4.osgi.example.person</artifactId>
 	<packaging>eclipse-plugin</packaging>
 
 </project>

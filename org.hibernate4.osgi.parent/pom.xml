@@ -13,16 +13,18 @@
 		<tycho.repo.url>https://oss.sonatype.org/content/groups/public/</tycho.repo.url>
 	</properties>
 
-    <groupId>org.hibernate4.osgi</groupId>
-    <artifactId>org.hibernate4.osgi.parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+	<groupId>org.hibernate4.osgi</groupId>
+	<artifactId>org.hibernate4.osgi.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 
-  	<modules>
+	<modules>
 		<module>../org.hibernate4.lib.fragment</module>
 		<module>../org.hibernate4.osgi</module>
-  	</modules>
+		<module>../org.hibernate4.osgi.example.person</module>
+		<module>../org.hibernate4.osgi.h2.fragment</module>
+	</modules>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -122,9 +124,9 @@
 				<configuration>
 					<target>
 						<artifact>
-						    <groupId>org.hibernate4.osgi</groupId>
-						    <artifactId>org.hibernate4.osgi.parent</artifactId>
-						    <version>0.0.1-SNAPSHOT</version>
+							<groupId>org.hibernate4.osgi</groupId>
+							<artifactId>org.hibernate4.osgi.parent</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
 							<classifier>eclipse-3.8</classifier>
 						</artifact>
 					</target>

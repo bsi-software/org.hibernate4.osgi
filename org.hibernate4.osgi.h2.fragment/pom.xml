@@ -9,7 +9,8 @@
 		<relativePath>../org.hibernate4.osgi.parent</relativePath>
 	</parent>
 
-	<artifactId>org.hibernate4.osgi</artifactId>
+	<artifactId>org.hibernate4.osgi.h2.fragment</artifactId>
+	<version>1.3.170-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
 </project>
