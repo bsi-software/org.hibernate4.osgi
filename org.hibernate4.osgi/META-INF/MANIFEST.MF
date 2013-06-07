@@ -192,4 +192,4 @@ Import-Package: javassist.util.proxy;resolution:=optional,
  org.hibernate.type.descriptor.sql;resolution:=optional,
  org.hibernate.usertype;resolution:=optional,
  org.jboss.logging;resolution:=optional,
- org.osgi.framework;version="1.6.0"
+ org.osgi.framework;version="[1.5.0,2.0.0)"

@@ -59,7 +59,7 @@
 <unit id="com.thoughtworks.selenium.source" version="2.25.0.v201212071504"/>
 <unit id="com.google.guava" version="12.0.0.v201212092141"/>
 <unit id="com.google.guava.source" version="12.0.0.v201212092141"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20130201140822/repository/"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository/"/>
 </location>
 <location includeAllPlatforms="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
